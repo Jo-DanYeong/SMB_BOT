@@ -124,7 +124,8 @@ public class ListenCommend extends ListenerAdapter {
                 return;
             default:
                 if(OnOff.isEmpty()){
-                    embedUtil.Embed("알 수 없는 명령어",Color.cyan,word + "는 없는 명령어 입니다.\n 금지어 관련 도뭉말을 보시려면 '>금지어 help'를 입력해 주세요",true);
+                    embedUtil.Embed("알 수 없는 명령어",Color.cyan,word + "(은)는 알 수 없습니다.\n" +
+                                                                                    "도움말은 >help를 사용하여 확인하실 수 있습니다.",true);
                 }
         }
 
