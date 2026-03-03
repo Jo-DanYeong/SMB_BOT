@@ -163,6 +163,8 @@ public class ListenCommend extends ListenerAdapter {
                     color = Color.GREEN;
                 }
                 break;
+
+            case "활성화":
             case "on":
                 if (!curseWordRepo.exists(guildId, word)) {
                     comment = "먼저 'new'로 금지어를 등록한 뒤 'on'을 사용할 수 있습니다.";
