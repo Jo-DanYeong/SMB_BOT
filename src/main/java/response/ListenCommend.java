@@ -231,16 +231,15 @@ public class ListenCommend extends ListenerAdapter {
                 count = warnCount.getWarncnt();
 
                 if(reason.isEmpty()){
-                    messageReceivedEvent.getChannel()
-                            .sendMessage(target.getAsMention() + "님께 경고 " + count + "회가 누적되었습니다.")
-                            .queue();
+                    color = new Color(251,101,68);
+                    comment = target.getAsMention() + "님께 경고 " + count + "회가 누적되었습니다.";
                 }
                 else{
-                    messageReceivedEvent.getChannel()
-                            .sendMessage(target.getAsMention() + "님께 경고 " + count + "회가 누적되었습니다. (사유: " + reason + ")")
-                            .queue();
+                    color = new Color(251,101,68);
+                    comment = target.getAsMention() + "님께 경고 " + count + "회가 누적되었습니다. (사유: " + reason + ")";
                 }
-
+                embedUtil.Embed("경고 횟수",color,comment);
+                
                 // 타임아웃(뮤트)
                 try {
                     if (count >= 5 && !warnCount.isMute()) {
