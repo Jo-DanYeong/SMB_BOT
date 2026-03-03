@@ -30,6 +30,7 @@ public class ListenCommend extends ListenerAdapter {
     private String comment = "";
     private String command = "";
     private MessageReceivedEvent messageReceivedEvent;
+    private Color color;
     EmbedUtil embedUtil;
 
     @Override
