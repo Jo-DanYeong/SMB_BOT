@@ -34,6 +34,7 @@ public class ListenCommend extends ListenerAdapter {
 
     @Override
     public void onMessageReceived(@NotNull MessageReceivedEvent event) {
+        String message = event.getMessage().getContentRaw().trim();
         embedUtil = new EmbedUtil(event);
         String message = event.getMessage().getContentRaw().trim();
         // 접두사로 시작하지 않으면 무시
