@@ -109,6 +109,9 @@ public class ListenCommend extends ListenerAdapter {
 
         //금지어 등록 이외의 명령어 처리
         switch (word) {
+            case "목록":
+            case "리스트":
+            case "ls":
             case "list":
                 String list = curseWordRepo.listWords(guildId);
                 embedUtil.Embed("금지어 목록",Color.green,list);
