@@ -185,7 +185,7 @@ public class ListenCommend extends ListenerAdapter {
                         "도움말은 >help를 사용하여 확인하실 수 있습니다.";
                 color = Color.red;
         }
-        messageReceivedEvent.getMessage().reply(comment).queue();
+        embedUtil.Embed(title, color,comment,true,3);
     }
 
     // 경고 커맨드 처리: >경고 @유저 [사유...]
