@@ -4,6 +4,7 @@ import net.dv8tion.jda.api.requests.GatewayIntent;
 
 import java.util.EnumSet;
 
+@Getter
 public class GatwayIntents {
     private EnumSet<GatewayIntent> intents = EnumSet.of(
             GatewayIntent.GUILD_MESSAGES,
