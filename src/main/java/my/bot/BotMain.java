@@ -32,6 +32,12 @@ public class BotMain {
         MessageFilter messageFilter = context.getBean(MessageFilter.class);
         ListenCommend  listenCommend = context.getBean(ListenCommend.class);
 
+        final String token = botToken.getBotToken();
+        String ANSI_CYAN = "\u001B[36m";
+        String ANSI_RESET = "\u001B[0m";
+
+        EnumSet<GatewayIntent> intent = intents.getIntents();
+
         JDABuilder.createDefault(token).
                 enableIntents(intent).
                 setActivity(Activity.competing("도움말은 >help")).
