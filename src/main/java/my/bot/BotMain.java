@@ -18,8 +18,8 @@ import java.util.EnumSet;
 
 public class BotMain {
     public static void main(String[] args) {
-        final String ANSI_CYAN = "\u001B[36m";
-        final String ANSI_RESET = "\u001B[0m";
+        final BotToken botToken = new BotToken();
+        final GatwayIntents intents = new GatwayIntents();
 
         ApplicationContext context = SpringApplication.run(BotMain.class, args);
 
