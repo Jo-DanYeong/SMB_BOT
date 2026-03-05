@@ -1,5 +1,7 @@
 package CurseWord;
 
+import CurseWord.Normalizer.HangulUtils;
+import CurseWord.Normalizer.TextNormalizer;
 import CurseWord.database.CurseWord;
 import CurseWord.database.CurseWordRepo;
 import lombok.RequiredArgsConstructor;

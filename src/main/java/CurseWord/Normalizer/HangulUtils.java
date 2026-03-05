@@ -1,4 +1,4 @@
-package CurseWord;
+package CurseWord.Normalizer;
 
 import org.springframework.stereotype.Component;
 
