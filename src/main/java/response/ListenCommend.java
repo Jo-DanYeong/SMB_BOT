@@ -1,8 +1,5 @@
 package response;
-//뮤트 경고문 정리 할것
-import CurseWord.database.CurseWordRepo;
-import Warn.WarnCount;
-import Warn.WarnRepo;
+
 import lombok.RequiredArgsConstructor;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
