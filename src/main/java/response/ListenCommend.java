@@ -62,11 +62,11 @@ public class ListenCommend extends ListenerAdapter {
                     readhelp(event);
                     break;
 
-            case "f":
-            case"filter":
-            case "금지어":
-                CurseWordCommand(args);
-                break;
+                case "f":
+                case"filter":
+                case "금지어":
+                    CurseWordCommand(event,args);
+                    break;
 
             case "w":
             case "경고":
