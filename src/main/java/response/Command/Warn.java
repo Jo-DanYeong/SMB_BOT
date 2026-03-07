@@ -26,7 +26,7 @@ public class Warn {
         String guildId = messageReceivedEvent.getGuild().getId();
         String userId = target.getId();
         String reason = (args.length > 2 ? args[2] : "").toLowerCase();
-        String comment = "";
+        String comment;
         Color color;
 
         WarnCount warnCount;
