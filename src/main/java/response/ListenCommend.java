@@ -85,10 +85,10 @@ public class ListenCommend extends ListenerAdapter {
                     MuteCommand(event,args,true);
                     break;
 
-            case "um":
-            case "언뮤트":
-                MuteCommand(args,false);
-                break;
+                case "um":
+                case "언뮤트":
+                    MuteCommand(event,args,false);
+                    break;
 
             case "c":
             case "clear":
