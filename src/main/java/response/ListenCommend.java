@@ -68,16 +68,16 @@ public class ListenCommend extends ListenerAdapter {
                     CurseWordCommand(event,args);
                     break;
 
-            case "w":
-            case "경고":
-                WarnCommand(args,"add");
-                break;
+                case "w":
+                case "경고":
+                    WarnCommand(event,args,"add");
+                    break;
 
-            case "rw":
-            case"경고 취소":
-            case "경고회수":
-                WarnCommand(args,"sub");
-                break;
+                case "rw":
+                case"경고 취소":
+                case "경고회수":
+                    WarnCommand(event,args,"sub");
+                    break;
 
             case "m":
             case "mute":
