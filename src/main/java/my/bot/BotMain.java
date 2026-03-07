@@ -42,4 +42,5 @@ public class BotMain {
 
         System.out.println(ANSI_CYAN+"bot booting successful"+ANSI_RESET);
     }
+
 }
