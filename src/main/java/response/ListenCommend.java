@@ -110,7 +110,6 @@ public class ListenCommend extends ListenerAdapter {
         boolean hasAdmin = messageReceivedEvent.getMember() != null && messageReceivedEvent.getMember().hasPermission(Permission.ADMINISTRATOR);
         if (!hasAdmin) {
             String getHighestPerm = HighestPerm.GetHighestPerm(messageReceivedEvent);
-
             String Description = "현재 권한 : `" + getHighestPerm
                     + "`\n필요한 권한 : `" + "ADMINISTRATOR"
                     + "`\n사용하려는 명령어 : `" + command + "`";
