@@ -13,13 +13,12 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Component;
 
 import java.awt.*;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
-import java.time.Duration;
-import java.util.Objects;
-import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
+
+import static response.Command.Clean.CleanCommand;
+import static response.Command.CursWord.CurseWordCommand;
+import static response.Command.Help.readhelp;
+import static response.Command.Mute.MuteCommand;
+import static response.Command.Warn.WarnCommand;
 
 @Component
 @RequiredArgsConstructor
