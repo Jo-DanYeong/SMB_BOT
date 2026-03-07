@@ -13,8 +13,8 @@ import response.ListenCommend;
 
 import java.util.EnumSet;
 
-@SpringBootApplication(scanBasePackages = {"my.bot", "response", "CurseWord", "Warn"})
-@EnableMongoRepositories(basePackages = {"CurseWord.database", "Warn"})
+@SpringBootApplication(scanBasePackages = {"my.bot", "response", "CurseWordDB", "WarnDB"})
+@EnableMongoRepositories(basePackages = {"CurseWordDB.database", "WarnDB"})
 
 public class BotMain {
     public static void main(String[] args) {
