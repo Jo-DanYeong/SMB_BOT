@@ -24,11 +24,6 @@ import java.util.stream.Collectors;
 @Component
 @RequiredArgsConstructor
 public class ListenCommend extends ListenerAdapter {
-
-    private final CurseWordRepo curseWordRepo;
-    private final WarnRepo warnRepo;
-    private static final String PREFIX = ">";
-    private String comment = "";
     private String command = "";
     private MessageReceivedEvent messageReceivedEvent;
     private final String PREFIX = BotMain.getPREFIX();
