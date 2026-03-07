@@ -90,11 +90,12 @@ public class ListenCommend extends ListenerAdapter {
                     MuteCommand(event,args,false);
                     break;
 
-            case "c":
-            case "clear":
-            case "클린":
-                CleanCommand(args);
-                break;
+                case "c":
+                case "clear":
+                case "클린":
+                    CleanCommand(event,args);
+
+                    break;
 
             default:
                 embedUtil.Embed("알 수 없는 명령어",Color.RED,command + "(은)는 알 수 없습니다.\n" +
