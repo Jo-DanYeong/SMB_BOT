@@ -25,6 +25,7 @@ dependencies {
     implementation('net.dv8tion:JDA:6.3.1') {
         exclude group: 'ch.qos.logback'
     }
+    implementation 'org.springframework.boot:spring-boot-starter-web'
     // Lombok
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
