@@ -9,7 +9,6 @@ import my.bot.BotMain;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.springframework.stereotype.Component;
-import response.ListenCommend;
 import response.Util.EmbedUtil;
 import java.awt.*;
 import java.util.List;
