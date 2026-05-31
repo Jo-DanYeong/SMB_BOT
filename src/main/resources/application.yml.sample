@@ -2,3 +2,7 @@ spring:
   data:
     mongodb:
       uri: mongodb+srv://<ID>:<PassWord>@<DB_CLUSTER>.ajlsugx.mongodb.net/<DB_NAME>?retryWrites=true&w=majority&appName=<APP_NAME>
+app:
+  admin:
+    password: admin1234
+    allowed-user-ids: "123456789012345678,987654321098765432"

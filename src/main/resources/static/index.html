@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Discord Bot Admin</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<main class="shell">
+    <section class="topbar">
+        <div>
+            <p class="eyebrow">SMB Bot</p>
+            <h1>Discord 봇 관리자</h1>
+        </div>
+        <div class="top-actions">
+            <form id="guild-form" class="guild-form">
+                <label for="guild-id">서버 ID</label>
+                <input id="guild-id" name="guildId" placeholder="Discord guild id" autocomplete="off">
+                <button type="submit">적용</button>
+            </form>
+            <button id="logout" type="button" class="secondary">로그아웃</button>
+        </div>
+    </section>
+
+    <section class="status-grid">
+        <article>
+            <span>금칙어</span>
+            <strong id="word-count">0</strong>
+        </article>
+        <article>
+            <span>경고 대상</span>
+            <strong id="warn-count">0</strong>
+        </article>
+        <article>
+            <span>뮤트 상태</span>
+            <strong id="mute-count">0</strong>
+        </article>
+    </section>
+
+    <section class="workspace">
+        <article class="panel">
+            <div class="panel-header">
+                <div>
+                    <p class="eyebrow">Filter</p>
+                    <h2>금칙어 관리</h2>
+                </div>
+                <form id="word-form" class="inline-form">
+                    <input id="word-input" placeholder="추가할 단어" autocomplete="off">
+                    <button type="submit">추가</button>
+                </form>
+            </div>
+            <div id="word-list" class="chip-list"></div>
+        </article>
+
+        <article class="panel">
+            <div class="panel-header">
+                <div>
+                    <p class="eyebrow">Users</p>
+                    <h2>유저 관리</h2>
+                </div>
+                <form id="user-form" class="inline-form">
+                    <input id="user-id" placeholder="목록에서 이름 필터" autocomplete="off">
+                    <button type="submit">새로고침</button>
+                </form>
+            </div>
+            <div id="user-search-results" class="search-results"></div>
+            <div id="selected-user" class="selected-user empty">유저를 선택하면 경고와 뮤트를 관리할 수 있습니다.</div>
+            <div class="actions">
+                <button id="add-warn" type="button">경고 +1</button>
+                <button id="remove-warn" type="button">경고 -1</button>
+                <button id="toggle-mute" type="button">뮤트 전환</button>
+                <button id="reset-warn" type="button" class="danger">초기화</button>
+            </div>
+            <div id="warn-list" class="table"></div>
+        </article>
+    </section>
+
+    <p id="toast" class="toast" role="status" aria-live="polite"></p>
+</main>
+<script src="/app.js"></script>
+</body>
+</html>
