@@ -73,16 +73,16 @@ public class DiscordUserService {
         String effectiveName = member.getEffectiveName();
         String userName = member.getUser().getName();
         return !member.getUser().isBot()
-                && !isDeletedAccountName(effectiveName)
-                && !isDeletedAccountName(userName);
+                && isDeletedAccountName(effectiveName)
+                && isDeletedAccountName(userName);
     }
 
     private boolean isDeletedAccountName(String name) {
         String normalized = name == null ? "" : name.trim().toLowerCase(Locale.ROOT);
-        return normalized.isEmpty()
+        return !(normalized.isEmpty()
                 || normalized.equals("deleted user")
                 || normalized.startsWith("deleted_user")
-                || normalized.startsWith("deleted-user");
+                || normalized.startsWith("deleted-user"));
     }
 
     private Optional<Guild> getGuild(String guildId) {
