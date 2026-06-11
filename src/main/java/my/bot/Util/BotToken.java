@@ -1,17 +1,17 @@
 package my.bot.Util;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
-public class BotToken  {
-    @Value("${BotToken}")
-    private String DiscordBotToken;
+@Component
+public class BotToken{
+    private final String discordBotToken;
 
-    public BotToken() {
-        System.out.println("토큰 로딩 성공");
+    public BotToken(@Value("${BOT_TOKEN}") String discordBotToken) {
+        this.discordBotToken = discordBotToken;
     }
 
     public String getBotToken() {
-        System.out.println(DiscordBotToken);
-        return DiscordBotToken;
+        return discordBotToken;
     }
 }
