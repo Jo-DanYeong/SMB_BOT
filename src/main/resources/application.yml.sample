@@ -5,4 +5,4 @@ spring:
 app:
   admin:
     password: admin1234
-    allowed-user-ids: "123456789012345678,987654321098765432"
+    allowed-user-ids: ""
