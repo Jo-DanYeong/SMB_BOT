@@ -157,17 +157,17 @@ cd CMS_BOT
 ```
 
 2. 토큰 설정
-   `src/main/resources/Token.properties` 파일 생성:
+   `src/main/resources/.env` 파일 생성:
 
 ```properties
-BotToken=YOUR_DISCORD_BOT_TOKEN
+BOT_TOKEN=YOUR_DISCORD_BOT_TOKEN
 ```
 
 3. MongoDB 설정
    `application.properties` 파일 생성:
 
 ```properties
-spring.data.mongodb.uri=mongodb://localhost:27017/discord_bot
+spring.data.mongodb.urimongodb+srv://<ID>:<PassWord>@<DB_CLUSTER>.ajlsugx.mongodb.net/<DB_NAME>?retryWrites=true&w=majority&appName=<APP_NAME>
 ```
 
 ### 실행

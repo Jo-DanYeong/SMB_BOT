@@ -1,8 +1,19 @@
 spring:
-  data:
+  config:
+    import:
+      - optional:file:.env[.properties]
+  mongodb:
+    uri: ${MONGODB_URI}
+
+server:
+  port: ${SERVER_PORT}
+
+management:
+  health:
     mongodb:
-      uri: mongodb+srv://<ID>:<PassWord>@<DB_CLUSTER>.ajlsugx.mongodb.net/<DB_NAME>?retryWrites=true&w=majority&appName=<APP_NAME>
+      enabled: false
+
 app:
   admin:
-    password: admin1234
+    password: admin
     allowed-user-ids: ""
