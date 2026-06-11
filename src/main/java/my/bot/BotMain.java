@@ -2,6 +2,8 @@ package my.bot;
 
 import CurseWordDB.MessageFilter;
 import lombok.Getter;
+import my.bot.Util.BotToken;
+import my.bot.Util.GatwayIntents;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
@@ -24,10 +26,8 @@ public class BotMain {
     private static final String PREFIX = ">";
     private static final BotToken botToken = new BotToken();
     private static final String token = botToken.getBotToken();
-    @Getter
-    private static JDA jda;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         ApplicationContext context = SpringApplication.run(BotMain.class, args);
         MessageFilter messageFilter = context.getBean(MessageFilter.class);
         ListenCommend  listenCommend = context.getBean(ListenCommend.class);
@@ -38,7 +38,7 @@ public class BotMain {
         String ANSI_CYAN = "\u001B[36m";
         String ANSI_RESET = "\u001B[0m";
 
-        jda = JDABuilder.createDefault(token).
+        JDABuilder.createDefault(token).
                 enableIntents(intent).
                 setActivity(Activity.listening("도움말은 >help")).
                 setStatus(OnlineStatus.ONLINE).
