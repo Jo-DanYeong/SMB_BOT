@@ -34,7 +34,8 @@ public class WarnRepo {
 
     //뮤트 유뮤 조회
     public boolean getMute(String guildId, String userId){
-        WarnCount warnCount = new WarnCount(guildId,userId);
+        WarnCount warnCount = repo.findByGuildIdAndUserId(guildId,userId)
+                .orElse(new WarnCount(guildId,userId,0,false));
         return warnCount.isMute();
     }
 

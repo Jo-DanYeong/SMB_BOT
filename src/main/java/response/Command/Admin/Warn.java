@@ -14,19 +14,18 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class Warn {
-    private static WarnRepo warnRepo;
     // 경고 커맨드 처리: >경고 @유저 [사유...]
-    public static void WarnCommand(MessageReceivedEvent messageReceivedEvent, String[] args, String Warning) {
+    public static void WarnCommand(MessageReceivedEvent messageReceivedEvent, String[] args, String Warning, WarnRepo warnRepo) {
         if (messageReceivedEvent.getMessage().getMentions().getMembers().isEmpty()) {
             messageReceivedEvent.getMessage().reply("경고를 줄 대상을 멘션해주세요.").queue();
             return;
         }
         EmbedUtil embedUtil = new EmbedUtil(messageReceivedEvent);
         Member target = messageReceivedEvent.getMessage().getMentions().getMembers().get(0);
-        String guildId = messageReceivedEvent.getGuild().getId();
-        String userId = target.getId();
-        String reason = (args.length > 2 ? args[2] : "").toLowerCase();
-        String comment;
+        String guildId = messageReceivedEvent.getGuild().getId(),
+                userId = target.getId(),
+                reason = (args.length > 2 ? args[2] : "").toLowerCase(),
+                comment;
         Color color;
 
         WarnCount warnCount;

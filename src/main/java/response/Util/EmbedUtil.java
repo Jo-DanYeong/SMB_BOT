@@ -35,6 +35,7 @@ public class EmbedUtil {
         MessageEmbed embed = eb.build();
 
         if (Delete){
+            event.getMessage().delete().queueAfter(Time,TimeUnit.SECONDS);
             event.getMessage().replyEmbeds(embed).queue(embeMessage -> embeMessage.delete().queueAfter(Time, TimeUnit.SECONDS));
         }
         else{

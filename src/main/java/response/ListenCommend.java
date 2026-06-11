@@ -1,5 +1,8 @@
 package response;
 
+import CurseWordDB.database.CurseWordRepo;
+import WarnDB.WarnRepo;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import my.bot.BotMain;
 import net.dv8tion.jda.api.Permission;
@@ -23,7 +26,10 @@ import static response.Command.Admin.Warn.WarnCommand;
 @Component
 @RequiredArgsConstructor
 public class ListenCommend extends ListenerAdapter {
-    private String command = "";
+    private final CurseWordRepo curseWordRepo;
+    private final WarnRepo warnRepo;
+    @Getter
+    private static String command = "";
     private MessageReceivedEvent messageReceivedEvent;
     private final String PREFIX = BotMain.getPREFIX();
     EmbedUtil embedUtil;
@@ -41,6 +47,8 @@ public class ListenCommend extends ListenerAdapter {
             readhelp(event);
             return;
         }
+
+
 
         String[] args = message.substring(PREFIX.length()).trim().split("\\s+");
         command = args[0].toLowerCase();
@@ -70,29 +78,29 @@ public class ListenCommend extends ListenerAdapter {
                         case "f":
                         case"filter":
                         case "금지어":
-                            CurseWordCommand(event,args);
+                            CurseWordCommand(event,args,curseWordRepo);
                             break;
 
                         case "w":
                         case "경고":
-                            WarnCommand(event,args,"add");
+                            WarnCommand(event,args,"add",warnRepo);
                             break;
 
                         case "rw":
                         case"경고 취소":
                         case "경고회수":
-                            WarnCommand(event,args,"sub");
+                            WarnCommand(event,args,"sub",warnRepo);
                             break;
 
                         case "m":
                         case "mute":
                         case "뮤트":
-                            MuteCommand(event,args,true);
+                            MuteCommand(event,args,true,warnRepo);
                             break;
 
                         case "um":
                         case "언뮤트":
-                            MuteCommand(event,args,false);
+                            MuteCommand(event,args,false,warnRepo);
                             break;
 
                         case "c":
@@ -100,10 +108,11 @@ public class ListenCommend extends ListenerAdapter {
                         case "클린":
                             CleanCommand(event,args);
                             break;
-                    }
 
-                    embedUtil.Embed("알 수 없는 명령어",command + "(은)는 알 수 없습니다.\n" +
-                            "도움말은 >help를 사용하여 확인하실 수 있습니다.", Color.RED,true,5);
+                        default:
+                            embedUtil.Embed("알 수 없는 명령어",command + "(은)는 알 수 없습니다.\n" +
+                                    "도움말은 >help를 사용하여 확인하실 수 있습니다.", Color.RED,true,5);
+                    }
                 }
         }
 

@@ -10,9 +10,8 @@ import java.awt.*;
 import java.time.Duration;
 
 public class Mute {
-    private static WarnRepo warnRepo;
     // 뮤트 (>mute @유저 )
-    public static void MuteCommand(MessageReceivedEvent messageReceivedEvent, String[] args, boolean mute) {
+    public static void MuteCommand(MessageReceivedEvent messageReceivedEvent, String[] args, boolean mute, WarnRepo warnRepo) {
         int time = 5;
         EmbedUtil embedUtil = new EmbedUtil(messageReceivedEvent);
 
