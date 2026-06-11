@@ -26,6 +26,8 @@ public class BotMain {
     private static final String PREFIX = ">";
     private static final BotToken botToken = new BotToken();
     private static final String token = botToken.getBotToken();
+    @Getter
+    private static JDA jda;
 
     public static void main(String[] args) throws InterruptedException {
         ApplicationContext context = SpringApplication.run(BotMain.class, args);
@@ -38,7 +40,7 @@ public class BotMain {
         String ANSI_CYAN = "\u001B[36m";
         String ANSI_RESET = "\u001B[0m";
 
-        JDABuilder.createDefault(token).
+        jda = JDABuilder.createDefault(token).
                 enableIntents(intent).
                 setActivity(Activity.listening("도움말은 >help")).
                 setStatus(OnlineStatus.ONLINE).
