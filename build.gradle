@@ -1,11 +1,11 @@
 plugins {
     id 'org.springframework.boot' version '4.0.6'
     id 'io.spring.dependency-management' version '1.1.7'
-    id("java")
+    id 'java'
 }
 
-group = "my.bot"
-version = "1.0-SNAPSHOT"
+group = 'my.bot'
+version = '1.0-SNAPSHOT'
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -17,35 +17,27 @@ repositories {
 }
 
 dependencies {
-    // Spring Boot Starter가 핵심 의존성(logging, core, jackson)을 알아서 관리합니다.
-    implementation 'org.springframework.boot:spring-boot-starter'
+    // Spring Boot
+    implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
-    // JDA (로깅 라이브러리 중복 방지를 위해 제외 설정 추가)
+
+    // Discord JDA
     implementation('net.dv8tion:JDA:6.3.1') {
         exclude group: 'ch.qos.logback'
     }
-    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // Crypto
+    implementation 'org.bouncycastle:bcprov-jdk18on:1.84'
+
     // Lombok
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+
     // Test
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    //spring env
-    implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap:4.1.0'
-
-    implementation 'org.bouncycastle:bcprov-jdk18on:1.84'
-    implementation('org.springframework:spring-core:6.2.11')
-    implementation('tools.jackson.core:jackson-core:3.1.0')
-    implementation('com.fasterxml.jackson.core:jackson-core:2.21.1')
-    implementation 'ch.qos.logback:logback-classic:1.5.25'
-    implementation("net.dv8tion:JDA:6.1.2")
-    testImplementation(platform("org.junit:junit-bom:5.10.0"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
-    implementation(platform("org.mongodb:mongodb-driver-bom:5.6.1"))
 }
 
 tasks.test {
     useJUnitPlatform()
 }
-
