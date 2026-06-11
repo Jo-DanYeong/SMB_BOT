@@ -21,14 +21,12 @@ public class MessageFilter extends ListenerAdapter {
     private final HangulUtils hangulUtils;
     private final TextNormalizer textNormalizer;
 
-    // 한글 포함 여부 확인 패턴
     private static final Pattern HANGUL_PATTERN = Pattern.compile("[\\uAC00-\\uD7AF\\u3131-\\u3163]");
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
         if (event.getAuthor().isBot()) return;
 
-        // 멤버 변수 대신 지역 변수 사용
         String rawMessage = event.getMessage().getContentRaw().trim();
 
         // 명령어의 시작 '>'으로 시작하면 하거나 봇의 채팅이면 검사 안하기
@@ -56,10 +54,8 @@ public class MessageFilter extends ListenerAdapter {
             String targetWord = bw.getWord().toLowerCase();
             String normalizedTarget = textNormalizer.normalize(targetWord);
 
-            // 1단계: 일반 텍스트 매칭
             if (normalizedContent.contains(normalizedTarget)) return true;
 
-            // 2단계: 초성 대조 정밀 검사 (한글 포함 시)
             if (hasHangul) {
                 String chosungContent = hangulUtils.getChosung(normalizedContent);
                 String chosungTarget = hangulUtils.getChosung(normalizedTarget);
