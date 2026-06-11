@@ -43,7 +43,8 @@ public class BotMain {
                 setActivity(Activity.listening("도움말은 >help")).
                 setStatus(OnlineStatus.ONLINE).
                 addEventListeners(messageFilter,listenCommend).
-                build();
+                build().awaitReady();
+
         System.out.println(ANSI_CYAN+"bot booting successful"+ANSI_RESET);
         printAdminUrl(context);
     }
